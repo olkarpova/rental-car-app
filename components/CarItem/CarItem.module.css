@@ -1,0 +1,129 @@
+.card {
+    width: 276px;
+    min-height: 424px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 28px;
+}
+
+.imageBlock {
+    position: relative;
+    width: 276px;
+    height: 268px;
+    margin-bottom: 16px;
+    
+    overflow: hidden;
+    background-color: var(--bg);
+    border-radius: 14px;
+}
+
+.image {
+    object-fit: cover;
+    
+}
+
+.heart {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    width: 16px;
+    height: 16px;
+}
+
+.heartIcon {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.infoBlock {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 8px;
+
+    width: 276px;
+}
+
+.nameRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 87px; 
+    /* перевірити */
+
+    width: 276px;
+    height: 20px;
+}
+
+.name {
+    margin: 0;
+    max-width: 210px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+}
+
+.model {
+    color: var(--button);
+    /* color: #3470ff */
+}
+
+.price {
+    margin: 0;
+    flex-shrink: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--main);
+    /* color: #101828; */
+}
+
+.detailsBlock {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detailsLine {
+    margin: 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33;
+    color: var(--gray);
+    /* color: #8d929a */
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    width: 276px;
+    height: 44px;
+    margin-top: auto;
+    border-radius: 12px;
+    /* padding: 12px 99px; */
+
+    background-color: var(--button);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    transition: background-color 200ms ease;
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--button-hover);
+}
