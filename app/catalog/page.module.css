@@ -1,0 +1,52 @@
+.section {
+    padding-top: 84px;
+    padding-bottom: 124px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filters {
+    width: 100%;
+    margin-bottom: 56px;
+}
+
+.listBlock {
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.loadMoreBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 156px;
+    height: 44px;
+    padding: 12px 51px;
+
+    border: 1px solid #3470ff;
+    border-radius: 12px;
+    background-color: transparent;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+
+    cursor: pointer;
+    transition: border-color 200ms ease, color 200ms ease, background-color 200ms ease;
+}
+
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
+    background-color: #3470ff;
+    color: #ffffff;
+}
