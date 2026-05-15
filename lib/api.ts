@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CarsListResponse, Car } from "@/types/car";
 
-axios.defaults.baseURL = "https://car-rental-api.goit.global";
+axios.defaults.baseURL = "https://car-rental-api.goit.study";
 
 interface GetCarsParams {
   page?: number;

@@ -1,7 +1,7 @@
 export interface Location {
-    country: string;
-    city: string;
-    address: string;
+  country: string;
+  city: string;
+  address: string;
 }
 
 export interface Car {
@@ -13,12 +13,12 @@ export interface Car {
   img: string;
   description: string;
   fuelConsumption: string;
-engine: string;
-features: string[];
+  engine: string;
+  features?: string[];
   rentalPrice: string;
-    rentalCompany: string;
-    location: Location;
-  rentalConditions: string[];
+  rentalCompany: string;
+  location?: Location;
+  rentalConditions?: string[];
   mileage: number;
 }
 
@@ -28,5 +28,3 @@ export interface CarsListResponse {
   page: number;
   totalPages: number;
 }
-
-

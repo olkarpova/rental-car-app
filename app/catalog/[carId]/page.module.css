@@ -1,0 +1,260 @@
+.section {
+  padding-top: 84px;
+  padding-bottom: 176px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.leftColumn {
+  width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  flex-shrink: 0; /* ?? */
+}
+
+.imageWrapper {
+  width: 640px;
+  height: 512px;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #f2f4f7; /* ?? */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.formBlock {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+
+  border-radius: 16px;
+  padding: 32px;
+  width: 640px;
+  height: 424px;
+  border: 1px solid #dadde1;
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formTitle {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+}
+
+.formText {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+}
+
+.formFields {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inputsForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  background-color: #f7f7f7;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+}
+
+.input {
+  height: 48px;
+  padding: 12px 20px;
+}
+
+.textarea {
+  min-height: 88px;
+  padding: 12px 20px 56px;
+  resize: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #8d929a;
+}
+
+.sendButton {
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--button);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+}
+
+.sendButton:hover,
+.sendButton:focus {
+  background-color: var(--button-hover);
+}
+
+.rightColumn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 68px;
+
+  border-radius: 16px;
+  padding: 32px 24px;
+  width: 528px;
+  background: #fff;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.titleRow {
+display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  
+}
+.titleLine {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    /* margin-bottom: 8px; */
+}
+
+.title {
+margin: 0;      
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #101828;
+}
+.article {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+}
+
+.location {
+margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.price {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #00aad4;
+}
+
+.description {
+  margin: 0;
+  max-width: 488px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.infoCar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.infoSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.listItem {
+  position: relative;
+  padding-left: 24px; /* перевірити*/
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.listItem::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
