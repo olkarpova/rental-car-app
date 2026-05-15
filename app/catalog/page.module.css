@@ -50,3 +50,17 @@
     background-color: #3470ff;
     color: #ffffff;
 }
+
+.section {
+    padding: 84px 0 124px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.listBlock {
+    margin-top: 0;
+}
