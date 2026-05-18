@@ -12,6 +12,9 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "RentalCar",
   description: "RentalCar is a web application for browsing, filtering, and renting cars online.",
+  icons: {
+    icon: "/icons8-car.gif",
+  },
 };
 
 export default function RootLayout({

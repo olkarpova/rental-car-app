@@ -232,6 +232,7 @@ margin: 0;
 }
 
 .list {
+  list-style: none;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -241,20 +242,18 @@ margin: 0;
 }
 
 .listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   position: relative;
-  padding-left: 24px; /* перевірити*/
+  /* padding-left: 24px; перевірити */
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
   color: #101828;
 }
 
-.listItem::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 16px;
-  line-height: 1.25;
-  color: #101828;
+.listItem svg {
+  flex-shrink: 0;
+  margin-top: 4px;
 }

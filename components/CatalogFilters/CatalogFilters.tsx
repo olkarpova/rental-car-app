@@ -32,7 +32,7 @@ const CatalogFilters = ({
   const [minMileage, setMinMileage] = useState(initialMinMileage);
   const [maxMileage, setMaxMileage] = useState(initialMaxMileage);
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearch = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const params = new URLSearchParams();

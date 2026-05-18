@@ -6,6 +6,7 @@ import { createRental, getCarById } from "@/lib/api";
 import Image from "next/image";
 import css from "./page.module.css";
 import { useState } from "react";
+import CheckIcon from "@/components/CheckIcon/CheckIcon";
 
 const CarDetailsClientPage = () => {
   const { carId } = useParams<{ carId: string }>();
@@ -42,7 +43,7 @@ const CarDetailsClientPage = () => {
     },
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     mutate({
@@ -158,7 +159,8 @@ const CarDetailsClientPage = () => {
                 <ul className={css.list}>
                   {rentalConditions.map((condition) => (
                     <li key={condition} className={css.listItem}>
-                      {condition}
+                      <CheckIcon />
+                      <span>{condition}</span>
                     </li>
                   ))}
                 </ul>
@@ -167,14 +169,62 @@ const CarDetailsClientPage = () => {
               <div className={css.infoSection}>
                 <h2 className={css.sectionTitle}>Car Specifications:</h2>
                 <ul className={css.list}>
-                  <li className={css.listItem}>Year: {car.year}</li>
-                  <li className={css.listItem}>Type: {car.type}</li>
                   <li className={css.listItem}>
-                    Fuel Consumption: {car.fuelConsumption}
+                    <svg
+                      className={css.specIcon}
+                      width="11"
+                      height="9"
+                      aria-hidden="true"
+                    >
+                      <use href="/sprite.svg#icon-calendar" />
+                    </svg>
+                    <span>Year: {car.year}</span>
                   </li>
-                  <li className={css.listItem}>Engine: {car.engine}</li>
                   <li className={css.listItem}>
-                    Mileage: {car.mileage.toLocaleString("en-US")} km
+                    <svg
+                      className={css.specIcon}
+                      width="16"
+                      height="16"
+                      aria-hidden="true"
+                    >
+                      <use href="/sprite.svg#icon-car" />
+                    </svg>
+                    <span>Type: {car.type}</span>
+                  </li>
+                  <li className={css.listItem}>
+                    <svg
+                      className={css.specIcon}
+                      width="16"
+                      height="16"
+                      aria-hidden="true"
+                    >
+                      <use href="/sprite.svg#icon-fuel" />
+                    </svg>
+                    <span>Fuel Consumption: {car.fuelConsumption}</span>
+                  </li>
+                  <li className={css.listItem}>
+                    <svg
+                      className={css.specIcon}
+                      width="16"
+                      height="16"
+                      aria-hidden="true"
+                    >
+                      <use href="/sprite.svg#icon-gear" />
+                    </svg>
+                    <span>Engine: {car.engine}</span>
+                  </li>
+                  <li className={css.listItem}>
+                    <svg
+                      className={css.specIcon}
+                      width="16"
+                      height="16"
+                      aria-hidden="true"
+                    >
+                      <use href="/sprite.svg#icon-alert" />
+                    </svg>
+                    <span>
+                      Mileage: {car.mileage.toLocaleString("en-US")} km
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -184,6 +234,7 @@ const CarDetailsClientPage = () => {
                 <ul className={css.list}>
                   {features.map((feature) => (
                     <li key={feature} className={css.listItem}>
+                      <CheckIcon />
                       {feature}
                     </li>
                   ))}
