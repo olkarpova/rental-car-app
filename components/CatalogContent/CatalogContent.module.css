@@ -1,0 +1,27 @@
+.loadMoreBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 12px 51px;
+    margin: 48px auto 0;
+    border: 1px solid #00a4d4;
+    border-radius: 12px;
+    background-color: transparent;
+    color: #101828;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.loadMoreBtn:hover {
+    background-color: #00a4d4;
+    color: #ffffff;
+}
+
+.loadMoreBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

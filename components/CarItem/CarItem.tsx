@@ -15,15 +15,6 @@ const CarItem = ({ item }: Props) => {
   return (
     <li className={css.card}>
       <div className={css.imageBlock}>
-        <div className={css.heart}>
-          <Image
-            src="/icons/heart.svg"
-            alt="Favorite icon"
-            width={16}
-            height={16}
-            className={css.heartIcon}
-          />
-        </div>
         <Image
           src={item.img}
           alt={`${item.brand} ${item.model}`}

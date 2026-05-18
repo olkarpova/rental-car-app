@@ -1,0 +1,21 @@
+.section {
+    padding: 84px 0 124px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0 px;
+}
+
+.sidebar {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+}

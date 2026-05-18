@@ -2,9 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
     width: 100%;
-    margin-bottom: 56px;
+    margin-bottom: 60px;
 }
 
 .filtersRow {
@@ -14,11 +13,13 @@
     gap: 16px;
     width: 100%;
     max-width: 924px;
+    flex-wrap: nowrap;
 }
 
 .fieldGroup {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
 }
 
@@ -60,7 +61,7 @@
 
 .mileageWrap {
     display: flex;
-    gap: 0;
+    width: 320px;
 }
 
 .inputFrom,
@@ -85,19 +86,14 @@
     border-radius: 0 12px 12px 0;
 }
 
-.actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-
 .searchBtn {
-    min-width: 156px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 156px;
     height: 44px;
     border: none;
     border-radius: 12px;
-    padding: 12px 51px;
     background-color: #0aa4d8;
     color: #ffffff;
     font-weight: 600;
@@ -113,6 +109,8 @@
 }
 
 .resetBtn {
+    margin-top: 8px;
+    margin-left: 768px;
     border: none;
     background-color: transparent;
     color: #8d929a;
@@ -127,58 +125,4 @@
 .resetBtn:focus {
     color: #101828;
 }
-
-@media screen and (max-width: 1024px) {
-    .filtersRow {
-        flex-wrap: wrap;
-        align-items: stretch;
-        max-width: 100%;
-    }
-
-    .fieldGroupBrand,
-    .fieldGroupPrice,
-    .fieldGroupMileage {
-        width: 100%;
-    }
-
-    .mileageWrap {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .inputFrom,
-    .inputTo {
-        width: 100%;
-    }
-
-    .actions {
-        width: 100%;
-        align-items: stretch;
-    }
-
-    .searchBtn {
-        width: 100%;
-    }
-
-    .resetBtn {
-        align-self: center;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .filtersWrap {
-        margin-bottom: 40px;
-    }
-
-    .filtersRow {
-        gap: 12px;
-    }
-
-    .select,
-    .input,
-    .inputFrom,
-    .inputTo,
-    .searchBtn {
-        font-size: 14px;
-    }
-}
+  

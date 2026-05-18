@@ -1,13 +1,20 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import { getCarById } from "@/lib/api";
+import { createRental, getCarById } from "@/lib/api";
 import Image from "next/image";
 import css from "./page.module.css";
+import { useState } from "react";
 
 const CarDetailsClientPage = () => {
   const { carId } = useParams<{ carId: string }>();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [submitError, setSubmitError] = useState("");
 
   const {
     data: car,
@@ -18,6 +25,32 @@ const CarDetailsClientPage = () => {
     queryFn: () => getCarById(carId),
     refetchOnMount: false,
   });
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: (payload: { name: string; email: string; comment?: string }) =>
+      createRental(carId, payload),
+    onSuccess: (data) => {
+      setSuccessMessage(data.message);
+      setSubmitError("");
+      setName("");
+      setEmail("");
+      setComment("");
+    },
+    onError: () => {
+      setSubmitError("Failed to send booking request. Please try again.");
+      setSuccessMessage("");
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    mutate({
+      name,
+      email,
+      comment: comment.trim() || undefined,
+    });
+  };
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -44,7 +77,7 @@ const CarDetailsClientPage = () => {
               />
             </div>
 
-            <form className={css.formBlock}>
+            <form onSubmit={handleSubmit} className={css.formBlock}>
               <div className={css.formHeader}>
                 <h2 className={css.formTitle}>Book your car now</h2>
                 <p className={css.formText}>
@@ -59,23 +92,43 @@ const CarDetailsClientPage = () => {
                     name="name"
                     placeholder="Name*"
                     className={css.input}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
                   />
                   <input
                     type="email"
                     name="email"
                     placeholder="Email*"
                     className={css.input}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
                   <textarea
                     name="comment"
                     placeholder="Comment"
                     className={css.textarea}
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
                   />
                 </div>
 
-                <button type="submit" className={css.sendButton}>
-                  Send
+                <button
+                  type="submit"
+                  className={css.sendButton}
+                  disabled={isPending}
+                >
+                  {isPending ? "Sending..." : "Send"}
                 </button>
+
+                {successMessage && (
+                  <p className={css.successMessage}>{successMessage}</p>
+                )}
+
+                {submitError && (
+                  <p className={css.errorMessage}>{submitError}</p>
+                )}
               </div>
             </form>
           </div>

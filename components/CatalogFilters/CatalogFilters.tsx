@@ -32,22 +32,18 @@ const CatalogFilters = ({
   const [minMileage, setMinMileage] = useState(initialMinMileage);
   const [maxMileage, setMaxMileage] = useState(initialMaxMileage);
 
-  const handleSearch = () => {
-    const params = new URLSearchParams(searchParams.toString());
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    params.delete("page");
+    const params = new URLSearchParams();
 
     if (brand) params.set("brand", brand);
-    else params.delete("brand");
 
     if (price) params.set("price", price);
-    else params.delete("price");
 
     if (minMileage) params.set("minMileage", minMileage);
-    else params.delete("minMileage");
 
     if (maxMileage) params.set("maxMileage", maxMileage);
-    else params.delete("maxMileage");
 
     const queryString = params.toString();
     router.push(queryString ? `/catalog?${queryString}` : "/catalog");
@@ -62,13 +58,16 @@ const CatalogFilters = ({
     router.push("/catalog");
   };
 
+  const start = Math.ceil(priceRange.min / 10) * 10;
+  const end = Math.floor(priceRange.max / 10) * 10;
+
   const priceOptions = Array.from(
-    { length: priceRange.max - priceRange.min + 1 },
-    (_, index) => priceRange.min + index
+    { length: (end - start) / 10 + 1 },
+    (_, index) => start + index * 10,
   );
 
   return (
-    <div className={css.filtersWrap}>
+    <form className={css.filtersWrap} onSubmit={handleSearch}>
       <div className={css.filtersRow}>
         <div className={`${css.fieldGroup} ${css.fieldGroupBrand}`}>
           <label className={css.label} htmlFor="brand">
@@ -102,7 +101,7 @@ const CatalogFilters = ({
             <option value="">Choose a price</option>
             {priceOptions.map((priceItem) => (
               <option key={priceItem} value={String(priceItem)}>
-                {priceItem}
+                ${priceItem}
               </option>
             ))}
           </select>
@@ -110,6 +109,7 @@ const CatalogFilters = ({
 
         <div className={`${css.fieldGroup} ${css.fieldGroupMileage}`}>
           <label className={css.label}>Car mileage / km</label>
+
           <div className={css.mileageWrap}>
             <input
               type="number"
@@ -128,26 +128,14 @@ const CatalogFilters = ({
             />
           </div>
         </div>
-
-        <div className={css.actions}>
-          <button
-            type="button"
-            className={css.searchBtn}
-            onClick={handleSearch}
-          >
-            Search
-          </button>
-
-          <button
-            type="button"
-            className={css.resetBtn}
-            onClick={handleReset}
-          >
-            Clear filters
-          </button>
-        </div>
+        <button type="submit" className={css.searchBtn}>
+          Search
+        </button>
       </div>
-    </div>
+      <button type="button" className={css.resetBtn} onClick={handleReset}>
+        Clear filters
+      </button>
+    </form>
   );
 };
 
